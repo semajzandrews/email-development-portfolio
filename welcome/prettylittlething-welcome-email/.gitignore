@@ -1,0 +1,11 @@
+# Server logs
+*.log
+server.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Learning and workflow files (not part of email project)
+EMAIL-DEVELOPMENT-LEARNING.md
+email-workflow-prompt.md
