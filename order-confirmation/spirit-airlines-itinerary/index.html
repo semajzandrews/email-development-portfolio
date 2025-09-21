@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spirit Airlines Itinerary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background-color: #ffd700;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-items {
+            display: flex;
+            gap: 35px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 0;
+        }
+        
+        .notice-box {
+            border: 2px solid #d32f2f;
+            border-radius: 8px;
+            margin: 25px 20px;
+            padding: 20px;
+            background-color: #fff;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .notice-box p {
+            margin-bottom: 12px;
+        }
+        
+        .notice-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .content {
+            padding: 20px 15px;
+        }
+        
+        .intro-section {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .intro-text {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .confirmation-section {
+            background-color: #e5e5e5;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .confirmation-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .confirmation-code {
+            font-size: 26px;
+            font-weight: bold;
+        }
+        
+        .booking-date {
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        .booking-date span {
+            font-weight: bold;
+        }
+        
+        .flight-section {
+            margin-top: 25px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .flight-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .flight-details {
+            border: none;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+        }
+        
+        .flight-details:last-child {
+            margin-bottom: 0;
+        }
+        
+        .flight-header {
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            border-radius: 6px 6px 0 0;
+        }
+        
+        .flight-info {
+            padding: 15px;
+            background-color: white;
+            border-radius: 0 0 6px 6px;
+        }
+        
+        .flight-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        
+        .flight-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .flight-label {
+            font-weight: bold;
+            min-width: 80px;
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        .time-duration {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .time-col, .duration-col {
+            text-align: left;
+        }
+        
+        .time-col {
+            min-width: 60px;
+        }
+        
+        .duration-col {
+            min-width: 80px;
+        }
+        
+        .notice-text-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .notice-text {
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .tsa-text-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .tsa-text {
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .info-box {
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 13px;
+            line-height: 1.5;
+            border-radius: 8px;
+        }
+        
+        .info-box a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .online-checkin {
+            font-size: 12px;
+            line-height: 1.5;
+            margin: 15px 0;
+        }
+        
+        .online-checkin a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        
+        .customer-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .customer-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        
+        .customer-table th {
+            background-color: #f9f9f9;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .customer-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .customer-table .primary-name {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        
+        .bags-section, .seats-section, .contact-section, .customer-info {
+            margin-top: 35px;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .bags-table, .seats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        
+        .bags-table th, .seats-table th {
+            background-color: #f9f9f9;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .bags-table td, .seats-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .bags-table .primary-name, .seats-table .primary-name {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        
+        .bags-section, .seats-section {
+            text-align: left;
+        }
+        /* Ensure tables inside bags/seats remain left-aligned like Customer Information */
+        .bags-section table, .seats-section table,
+        .bags-section th, .seats-section th,
+        .bags-section td, .seats-section td {
+            text-align: left;
+        }
+        /* Center only the add buttons */
+        .button-wrapper {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .add-button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .contact-info {
+            font-size: 13px;
+            line-height: 1.7;
+        }
+        
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .purchase-price-section, .additional-info-section {
+            margin-top: 45px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+        }
+        
+        .travel-ins-link {
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .travel-ins-link a {
+            color: #0066cc;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+        
+        .additional-info-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .travel-insurance-section {
+            margin-top: 45px;
+            background-color: white;
+            padding: 25px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .insurance-details {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        
+        .insurance-details a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .insurance-row {
+            margin-bottom: 10px;
+        }
+        
+        .insurance-label {
+            font-weight: bold;
+            display: inline-block;
+            min-width: 150px;
+        }
+        
+        .highlighted-name {
+            background-color: #ffff99;
+            padding: 1px 2px;
+        }
+        
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        
+        .price-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-table .price-label {
+            text-align: left;
+        }
+        
+        .price-table .price-amount {
+            text-align: right;
+        }
+        
+        .price-table .total-row {
+            font-weight: bold;
+            font-size: 16px;
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+        }
+        
+        .travel-ins-logo {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .travel-ins-logo a {
+            color: #0066cc;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+        
+        .info-box-gray {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 25px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            border-radius: 8px;
+        }
+        
+        .info-box-gray a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .baggage-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .baggage-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .baggage-text {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .baggage-text:last-child {
+            margin-bottom: 0;
+        }
+        
+        .baggage-text a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .liability-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .liability-section a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .section-box {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .section-box.first-box {
+            margin-top: 25px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .section-box.last-box {
+            margin-bottom: 25px;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .section-box:not(.first-box):not(.last-box) {
+            border-radius: 0;
+        }
+        
+        .section-box-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .section-box-text {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .section-box-text:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-box-text a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .checkin-section {
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+        
+        .flight-status-section {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        
+        .travel-resources-section {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        
+        .cancel-change-section {
+            margin-top: 0;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .footer {
+            background-color: white;
+            padding: 35px 25px;
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .footer-nav {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+        }
+        
+        .social-icons {
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+        }
+        
+        .social-icons img {
+            width: 26px;
+            height: 26px;
+        }
+        
+        .feedback-section {
+            font-size: 13px;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+        
+        .feedback-section a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .company-info {
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 1.6;
+            margin-top: 25px;
+        }
+        
+        .footer-links {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #0066cc;
+            text-decoration: underline;
+            margin: 0 10px;
+        }
+        
+        /* Download buttons styling */
+        .download-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 0 0 30px 0;
+            border-radius: 0;
+            text-align: center;
+            border-bottom: 2px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .download-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .download-btn {
+            background-color: #0066cc;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background-color: #0052a3;
+        }
+        
+        .download-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+        
+        /* Mobile responsive improvements */
+        @media screen and (max-width: 600px) {
+            .container {
+                max-width: 100%;
+                margin: 0;
+            }
+            
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-items {
+                gap: 20px;
+                font-size: 12px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .intro-section, .flight-section, .bags-section, .seats-section, 
+            .contact-section, .customer-info, .travel-insurance-section, 
+            .purchase-price-section {
+                padding: 20px 15px;
+            }
+            
+            .notice-box, .notice-text-box, .tsa-text-box, .info-box {
+                margin: 20px 15px;
+                padding: 20px 15px;
+            }
+            
+            .time-duration {
+                gap: 25px;
+            }
+            
+            .footer {
+                padding: 25px 15px;
+            }
+            
+            .footer-nav {
+                gap: 20px;
+                font-size: 12px;
+            }
+            
+            .social-icons {
+                gap: 15px;
+            }
+            
+            .download-section {
+                padding: 15px;
+                margin: 0 0 20px 0;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Download buttons at the very top -->
+        <div class="download-section">
+            <div class="download-title">Download Your Itinerary</div>
+            <div class="download-buttons">
+                <button class="download-btn" onclick="downloadItinerary()">
+                    <svg class="download-icon" viewBox="0 0 24 24">
+                        <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+                    </svg>
+                    Download
+                </button>
+            </div>
+        </div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="/Users/semajandrews/Downloads/Image from Google.png" alt="Spirit Airlines">
+            </div>
+            <div class="nav-items">
+                <div>HOTEL</div>
+                <div>CAR</div>
+                <div>TRIPS</div>
+                <div>PARTNERS</div>
+            </div>
+        </div>
+        
+        <div class="notice-box">
+            <p><strong>Face coverings are now optional for Spirit Team Members & Guests onboard our flights following the federal court ruling and TSA guidance.</strong></p>
+            <p><strong>For our Guests traveling internationally, please remember to check</strong> <strong><u>country-specific airport requirements</u></strong> <strong>before traveling.</strong></p>
+        </div>
+        
+        <div class="content">
+            <div class="intro-section">
+                <div class="intro-text">
+                    <strong>Thank you for choosing Spirit Airlines. This notice contains information to be used during your travels. Please review the contents of this document carefully. For your convenience, please print a copy to take with you on your trip.<br><br>
+                    Please do not reply to this email. The reply email address is used solely for outgoing email documents.</strong>
+                </div>
+                
+                <div class="confirmation-section">
+                    <div class="confirmation-title">YOUR CONFIRMATION CODE</div>
+                    <div class="confirmation-code">BKR7M9</div>
+                </div>
+                
+                <div class="booking-date">
+                    <span>Booking Date</span>&nbsp;&nbsp;&nbsp;&nbsp;Sunday, September 14, 2025
+                </div>
+            </div>
+            
+            <div class="flight-section">
+                <div class="flight-title">Flight</div>
+                
+                <div class="flight-details">
+                    <div class="flight-header">WEDNESDAY, SEPTEMBER 17, 2025</div>
+                    <div class="flight-info">
+                        <div class="flight-row">
+                            <div>Atlanta, GA<br>Newark, NJ</div>
+                            <div class="time-duration">
+                                <div class="time-col">
+                                    <div><strong>TIME</strong></div>
+                                    <div>6:25 AM</div>
+                                    <div>8:43 AM</div>
+                                </div>
+                                <div class="duration-col">
+                                    <div><strong>DURATION</strong></div>
+                                    <div>02 h 18 min</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flight-row">
+                            <div>
+                                <span class="flight-label">FLIGHT</span><br>
+                                1165
+                            </div>
+                            <div>
+                                <span class="flight-label">TERMINAL</span><br>
+                                N
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flight-details">
+                    <div class="flight-header">MONDAY, SEPTEMBER 22, 2025</div>
+                    <div class="flight-info">
+                        <div class="flight-row">
+                            <div>Newark, NJ<br>Atlanta, GA</div>
+                            <div class="time-duration">
+                                <div class="time-col">
+                                    <div><strong>TIME</strong></div>
+                                    <div>7:15 AM</div>
+                                    <div>9:41 AM</div>
+                                </div>
+                                <div class="duration-col">
+                                    <div><strong>DURATION</strong></div>
+                                    <div>02 h 26 min</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flight-row">
+                            <div>
+                                <span class="flight-label">FLIGHT</span><br>
+                                56
+                            </div>
+                            <div>
+                                <span class="flight-label">TERMINAL</span><br>
+                                B
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notice-text-box">
+                <div class="notice-text">
+                    <strong>Please be aware that flight times are subject to change. Notification of schedule changes will be sent to the email address provided at the time of booking.</strong>
+                </div>
+            </div>
+            
+            <div class="tsa-text-box">
+                <div class="tsa-text">
+                    <strong>Do you have TSA Pre✓®? Don't forget to add your Known Traveler Number (KTN) to your reservation</strong> <a href="#">here!</a>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                    We're committed to providing Safe Travels and peace of mind to our Guests. To further protect the health and safety of our Guests and Team Members during the Covid-19 coronavirus pandemic, Spirit requires appropriate face coverings during your entire journey with us. The only exception to this policy is children under the age of 2. Any other Guest who is unable to wear an appropriate face covering for any reason, including medical, will not be permitted to travel with us at this time. Please <a href="#">click here</a> to view our full Face Covering Policy.<br><br>
+                    
+                    <a href="#">Online check-in</a> begins 24 hours before your flight. It's the easy way to save time and money! Definitely <a href="#">reconfirm your flight times</a> on our site on your day of travel - or at any time. It is recommended that you arrive at the airport 2 hours prior to departure time for domestic flights (United States, Puerto Rico and U.S. Virgin Islands) and at least 3 hours prior to departure time for international flights.
+                </div>
+                
+                <div class="customer-info">
+                    <div class="customer-title">Customer Information</div>
+                    
+                    <table class="customer-table">
+                        <thead>
+                            <tr>
+                                <th>NAME</th>
+                                <th>ASSISTANCE</th>
+                                <th>FREE SPIRIT #</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Marquita Jackson</td>
+                                <td>None</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="bags-section">
+                    <div class="section-title">Bags</div>
+                    
+                    <table class="bags-table">
+                        <thead>
+                            <tr>
+                                <th>NAME</th>
+                                <th>CARRY-ON</th>
+                                <th>CHECKED</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Marquita Jackson</td>
+                                <td>0 | 0</td>
+                                <td>1 | 1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="button-wrapper">
+                        <a href="#" class="add-button">ADD BAGS</a>
+                    </div>
+                </div>
+                
+                <div class="seats-section">
+                    <div class="section-title">Seats</div>
+                    
+                    <table class="seats-table">
+                        <thead>
+                            <tr>
+                                <th>NAME</th>
+                                <th>SEATS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Marquita Jackson</td>
+                                <td>23A | -</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="button-wrapper">
+                        <a href="#" class="add-button">ADD SEATS</a>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <div class="section-title">Contact Information</div>
+                    
+                    <div class="contact-info">
+                        Semaj Andrews<br>
+                        509 S Jefferson St<br>
+                        City of Orange, NJ 07050<br>
+                        US<br><br>
+                        
+                        <a href="mailto:semajzandrews@gmail.com">semajzandrews@gmail.com</a><br>
+                        18622873880
+                    </div>
+                </div>
+                
+                <div class="travel-insurance-section">
+                    <div class="section-title">Travel Insurance</div>
+                    
+                    <div class="insurance-details">
+                        <div class="insurance-row">
+                            <span class="insurance-label">Policy Number:</span>
+                            9827463951
+                        </div>
+                        <div class="insurance-row">
+                            <span class="insurance-label">Policy Insured Name:</span>
+                            Marquita Jackson
+                        </div>
+                    </div>
+                    
+                    <div class="insurance-details">
+                        <strong>NOTE:</strong> You have purchased Travel Guard Insurance. Plan benefits, along with applicable definitions and terms of coverage, are fully described in your <a href="#">Description of Coverage</a>(DOC). It is your responsibility to read and understand the details of your coverage.
+                    </div>
+                    
+                    <div class="insurance-details">
+                        If you have any questions regarding your policy, you can call Travel Guard at 1.866.877.3191. Please reference the policy number listed above. <a href="#">View your policy online</a>.
+                    </div>
+                    
+                    <div class="insurance-details">
+                        If you make any changes to your reservation, you must contact <a href="#">Travel Guard online</a> or call 1.866.877.3191 regarding your coverage.
+                    </div>
+                    
+                    <div class="insurance-details">
+                        Coverage is offered by Travel Guard Group, Inc, and limitation will apply. <a href="#">full disclaimer</a>.
+                    </div>
+                </div>
+                
+                <div class="purchase-price-section">
+                    <div class="section-title">Purchase Price</div>
+                    
+                    <table class="price-table">
+                        <tr>
+                            <td class="price-label">Flight Price</td>
+                            <td class="price-amount">$260.00</td>
+                        </tr>
+                        <tr>
+                            <td class="price-label">Bags</td>
+                            <td class="price-amount">$35.00</td>
+                        </tr>
+                        <tr>
+                            <td class="price-label">Government's Cut</td>
+                            <td class="price-amount">$16.44</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td class="price-label">Total</td>
+                            <td class="price-amount">$311.44</td>
+                        </tr>
+                    </table>
+                    
+                </div>
+                
+                <div class="travel-ins-link">
+                    <a href="#">Travel Ins</a>
+                </div>
+                
+                <div class="additional-info-section">
+                    <div class="baggage-title">Additional Information</div>
+                    
+                    <div class="baggage-text">
+                        At some airports we serve, <strong>cash is not accepted</strong> as a form of payment. For more information, <a href="#">visit here</a>.
+                    </div>
+                    
+                    <div class="baggage-text">
+                        <a href="#">Click here</a> for full terms and conditions.
+                    </div>
+                    
+                    <div class="baggage-text">
+                        <a href="#">Haga clic aquí</a> para los términos y condiciones completos.
+                    </div>
+                </div>
+                
+                <div class="baggage-section">
+                        <div class="baggage-title">BAGGAGE</div>
+                        
+                        <div class="baggage-text">
+                            You'll save yourself some money if you <a href="#">buy your bags online right now</a>! You'll automatically get our <a href="#">Fast Bag Drop</a> service, which'll save you time when you get to the airport.
+                        </div>
+                        
+                        <div class="baggage-text">
+                            <strong>IMPORTANT:</strong> You may carry one free personal item on board (like a purse or laptop bag) if its dimensions do not exceed 18 x 14 x 8 inches including handles and wheels.
+                        </div>
+                    </div>
+                    
+                    <div class="liability-section">
+                        The baggage liability limit for domestic flights is $3,800 per passenger. <a href="#">Here's more information on our baggage policies, including carry-ons</a>.
+                    </div>
+                    
+                    <div class="section-box checkin-section first-box">
+                        <div class="section-box-title">CHECK-IN</div>
+                        
+                        <div class="section-box-text">
+                            You may be able to <a href="#">check in online</a> 24 hours before your flight. It'll save you time and money at the airport.
+                        </div>
+                        
+                        <div class="section-box-text">
+                            You'll want to get to the airport early to give yourself time to park, get through security, etc. Try to arrive 2 hours before domestic flights and 3 hours before international flights.
+                        </div>
+                        
+                        <div class="section-box-text">
+                            Additionally, you'll need to be at the boarding gate at least 15 minutes prior to departure for domestic flights (30 minutes prior for international departures) or you may lose your reservation.
+                        </div>
+                        
+                        <div class="section-box-text">
+                            Always double check that you have the right documents you need to travel. Remember: every country has different rules, so if you're flying internationally, contact an embassy or consulate of the country you're traveling to and find out what you need.
+                        </div>
+                        
+                        <div class="section-box-text">
+                            Certain foreign countries may charge additional taxes and fees that are collected directly by the local government or competent airport authority upon arrival or departure.
+                        </div>
+                    </div>
+                    
+                    <div class="section-box flight-status-section">
+                        <div class="section-box-title">FLIGHT STATUS</div>
+                        
+                        <div class="section-box-text">
+                            <a href="#">Click here</a> to check the departure and arrival status of your flight.
+                        </div>
+                    </div>
+                    
+                    <div class="section-box travel-resources-section last-box">
+                        <div class="section-box-title">HELPFUL TRAVEL RESOURCES</div>
+                        
+                        <div class="section-box-text">
+                            Transportation Security Administration - Visit the <a href="#">TSA website</a> and learn all about the new carry-on travel requirements.
+                        </div>
+                        
+                        <div class="section-box-text">
+                            Customs and Border Protection - Visit the <a href="#">U.S. State Department website</a> for travel tips and up-to-date travel information.
+                        </div>
+                    </div>
+                    
+                    <div class="section-box cancel-change-section">
+                        <div class="section-box-title">CANCEL/CHANGE</div>
+                        
+                        <div class="section-box-text">
+                            If you need to modify or cancel your reservation, please visit the <a href="#">Manage Travel</a> tab at <a href="#">spirit.com</a>. Additionally, you can also text us at 48763 or WhatsApp directly at 855-728-3555 with "Hello".
+                        </div>
+                        
+                        <div class="section-box-text">
+                            <a href="#">Click here</a> for information on travel policies.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <div class="footer-nav">
+                    <div>HOTEL</div>
+                    <div>CAR</div>
+                    <div>TRIPS</div>
+                    <div>PARTNERS</div>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter">
+                    </a>
+                    <a href="#">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
+                    </a>
+                    <a href="#">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook">
+                    </a>
+                </div>
+                
+                <div class="feedback-section">
+                    <strong>TO PROVIDE FEEDBACK</strong><br>
+                    If you have a comment or question, <a href="#">Click here</a> to chat now.
+                </div>
+                
+                <div class="company-info">
+                    Spirit Airlines<br>
+                    2800 Executive Way<br>
+                    Miramar, FL 33025<br>
+                    Copyright © 2022 Spirit Airlines, Inc. All Rights Reserved.
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Update Email Address</a>
+                    <a href="#">Help</a>
+                </div>
+            </div>
+        </div>
+    
+    <!-- Include html2canvas and jsPDF libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tAPHuVQpQZx1n8pK9d4BtxoXst6xf4c2TJ7lA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script>
+        // Single universal download function
+        function downloadItinerary() {
+            const btn = event.target.closest('.download-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<svg class="download-icon" viewBox="0 0 24 24"><path d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z" /></svg>Generating...';
+            btn.disabled = true;
+            
+            // Hide download section temporarily
+            const downloadSection = document.querySelector('.download-section');
+            downloadSection.style.display = 'none';
+            
+            // Use browser's print functionality
+            setTimeout(() => {
+                window.print();
+                
+                // Show download section again
+                setTimeout(() => {
+                    downloadSection.style.display = 'block';
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 1000);
+            }, 100);
+        }
+        
+        // Add mobile responsive styles for download buttons
+        const style = document.createElement('style');
+        style.textContent = `
+            @media screen and (max-width: 600px) {
+                .download-section {
+                    padding: 15px;
+                    margin: 0 0 20px 0;
+                }
+                
+                .download-buttons {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                
+                .download-btn {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+            
+            @media print {
+                .download-section {
+                    display: none !important;
+                }
+                
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                .container {
+                    box-shadow: none;
+                    border: 1px solid #000;
+                }
+                
+                /* Remove browser print headers and footers */
+                @page {
+                    margin: 0;
+                    size: auto;
+                }
+                
+                /* Hide any browser-generated content */
+                body::before,
+                body::after {
+                    display: none !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
